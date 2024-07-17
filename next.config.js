@@ -1,11 +1,20 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     experimental: {
-      appDir: true,
+      // appDir: true,
       serverComponentsExternalPackages: ["mongoose"],
     },
     images: {
-      domains: ['lh3.googleusercontent.com'],
+      // reactStrictMode: true,
+      // domains: ['lh3.googleusercontent.com'],
+      remotePatterns: [
+        {
+          protocol: 'https',
+          hostname: 'lh3.googleusercontent.com',
+          port: '',
+          pathname: '**',
+        },
+      ],
     },
     webpack(config) {
       config.experiments = {
@@ -16,4 +25,4 @@ const nextConfig = {
     }
   }
   
-  module.exports = nextConfig
+module.exports = nextConfig
