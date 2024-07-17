@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState, useEffect } from "react";
+import { Suspense, useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
@@ -26,7 +26,9 @@ const MyProfile = () => {
     }, [])
 
     const handleEdit = (post) => {
-        router.push(`/update-prompt?id=${post._id}`)
+        <Suspense>
+            {router.push(`/update-prompt?id=${post._id}`)}
+        </Suspense>
     }
 
     const handelDelete = async (post) => {
